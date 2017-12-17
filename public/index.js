@@ -33,8 +33,30 @@ var MyChildComponent = React.createClass({
 	}
 });
 
+var InputTag = React.createClass({
+	show: function() {
+		var text = this.refs.sl.value;
+		this.refs.result.value = text;
+	},
+	render: function(){
+		return (
+			<div>
+				<select ref="sl" onChange={this.show}>
+					<option value="">Choice</option>
+					<option value="a">A</option>
+					<option value="b">B</option>
+					<option value="c">C</option>
+				</select>
+				---<input type="text" ref="result" disabled/>
+			</div>
+		);
+	}
+});
+// <input type="text" ref="txt" onChange={this.show} />
+
 ReactDOM.render (
 	<div>
+		<InputTag />
 		<MyComponent name ="ReactJS" total="5">Love </MyComponent>
 		<hr />
 		<MyComponent name ="NodeJS" total="15"> Hate </MyComponent>
