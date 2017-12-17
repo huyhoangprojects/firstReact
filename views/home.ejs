@@ -3,8 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test ReactJS</title>
+	<script src="libs/react.js"></script>
+	<script src="libs/react-dom.js"></script>
+	<script src="libs/browser.min.js"></script>
 </head>
 <body>
-	Hello ReactJS
+	<div id="root"></div>
+	<script type="text/babel">
+		ReactDOM.render (
+			<h1> Hello ReactJS </h1>,
+			document.getElementById("root")
+		);
+	</script>
 </body>
 </html>
