@@ -1,0 +1,23 @@
+{
+  "name": "firstreactagain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyhoangprojects/firstReactAgain.git"
+  },
+  "author": "HoangPhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huyhoangprojects/firstReactAgain/issues"
+  },
+  "homepage": "https://github.com/huyhoangprojects/firstReactAgain#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
