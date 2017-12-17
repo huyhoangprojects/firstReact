@@ -1,0 +1,34 @@
+.list-box {
+	width: 400px;
+	max-width: 100%;
+	margin: auto;
+	border: 1px solid #ccc;
+	padding: 10px 30px 30px;
+	background: lightblue;
+	box-sizing: border-box;
+}
+.list-box__add {
+	float: right;
+	margin-bottom: 10px;
+}
+.list-box__form {
+	clear: both;
+	background: #ddebf7;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+.list-box__list-note {
+	clear: both;
+}
+.list-box__input {
+	width: 100%;
+	margin-bottom: 5px;
+}
+.list-box__note + .list-box__note {	
+	margin-top: 10px;
+}
+
+.list-box__note {
+	background: #ddebf7;
+	padding: 10px;
+}
