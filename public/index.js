@@ -1,10 +1,14 @@
 var MyComponent = React.createClass({
+	getAttitude: function() {
+		alert(123);
+	},
 	render: function(){
 		return (
 			<div>
 				<h1> Hello {this.props.name} </h1>
 				<h2> I {this.props.children} {this.props.name} </h2>
 				<MyChildComponent name={this.props.name} />
+				<button onClick={this.getAttitude}>Get</button>
 			</div>
 		);
 	}
