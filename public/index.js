@@ -2,8 +2,8 @@ var MyComponent = React.createClass({
 	render: function(){
 		return (
 			<div>
-				<h1> Hello ReactJS </h1>
-				<MyChildComponent />
+				<h1> Hello {this.props.name} </h1>
+				<MyChildComponent name={this.props.name} />
 			</div>
 		);
 	}
@@ -11,12 +11,15 @@ var MyComponent = React.createClass({
 var MyChildComponent = React.createClass({
 	render: function(){
 		return (
-			<h3> Code ReactJS </h3>
+			<h3> Code {this.props.name} </h3>
 		);
 	}
 });
 
 ReactDOM.render (
-	<MyComponent />,
+	<div>
+		<MyComponent name ="ReactJS"/>
+		<MyComponent name ="NodeJS"/>
+	</div>,
 	document.getElementById("root")
 );
