@@ -1,4 +1,12 @@
+var MyComponent = React.createClass({
+	render: function(){
+		return (
+			<h1> Hello ReactJS </h1>
+		);
+	}
+});
+
 ReactDOM.render (
-	<h1> Hello ReactJS </h1>,
+	<MyComponent />,
 	document.getElementById("root")
 );
