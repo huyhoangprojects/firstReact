@@ -1,7 +1,17 @@
 var MyComponent = React.createClass({
 	render: function(){
 		return (
-			<h1> Hello ReactJS </h1>
+			<div>
+				<h1> Hello ReactJS </h1>
+				<MyChildComponent />
+			</div>
+		);
+	}
+});
+var MyChildComponent = React.createClass({
+	render: function(){
+		return (
+			<h3> Code ReactJS </h3>
 		);
 	}
 });
