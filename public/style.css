@@ -33,4 +33,14 @@
 .list-box__note {
 	background: #ddebf7;
 	padding: 10px;
+	line-height: 20px;
+}
+.list-box__note button {
+	float: right;
+	padding-top: 0px;
+	display: none;
+	cursor: pointer;
+}
+.list-box__note:hover button {
+	display: block;
 }

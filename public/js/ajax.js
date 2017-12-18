@@ -16,7 +16,7 @@ var MyList = React.createClass({
 				<div id="add"></div>
 				{
 					this.state.arr.map(function(item, index){
-						return <MyNote key={index}>{item}</MyNote>
+						return <MyNote key={index} id={index}>{item}</MyNote>
 					})
 				}				
 			</div>
@@ -31,9 +31,16 @@ var MyList = React.createClass({
 
 });
 var MyNote = React.createClass({
+	delete: function(){
+		$.post("/delete", {idDelete: this.props.id} , function(data){
+			list.setState({arr: data});
+		});
+	},
 	render: function(){
 		return (
-			<div className="list-box__note">{this.props.children}</div>
+			<div className="list-box__note">{this.props.children}
+				<button onClick={this.delete}>x</button>
+			</div>
 		);
 	}
 });
