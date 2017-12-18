@@ -23,6 +23,8 @@
 .list-box__input {
 	width: 100%;
 	margin-bottom: 5px;
+	padding: 3px;
+	box-sizing: border-box;
 }
 .list-box__note + .list-box__note {	
 	margin-top: 10px;

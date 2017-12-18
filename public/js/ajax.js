@@ -1,4 +1,4 @@
-function addForm() {
+function addForm() {	
 	ReactDOM.render (
 		<MyForm />,
 		document.getElementById("add")
@@ -8,7 +8,7 @@ var list;
 var MyList = React.createClass({
 	getInitialState: function(){
 		list = this;
-		return {arr: ["Hi", "Hello", "Hey"]};
+		return {arr: []};
 	},
 	render: function(){
 		return (
@@ -21,7 +21,14 @@ var MyList = React.createClass({
 				}				
 			</div>
 		);
+	},
+	componentDidMount() {
+		var that = this;
+		$.post("/getNotes", function(data) {
+			that.setState({arr: data});
+		});
 	}
+
 });
 var MyNote = React.createClass({
 	render: function(){
@@ -33,11 +40,12 @@ var MyNote = React.createClass({
 var MyForm = React.createClass({	
 	send: function(){
 		list.setState({arr: list.state.arr.concat(this.refs.txt.value)});
+		ReactDOM.unmountComponentAtNode(document.getElementById("add"));
 	},
 	render: function(){
 		return (
 			<div className="list-box__form">
-				<input className="list-box__input" ref="txt" type="text" />
+				<input className="list-box__input" ref="txt" type="text" placeholder="Enter your note"/>
 				<button onClick={this.send} className="list-box__save">Save</button>
 			</div>
 		);
@@ -46,14 +54,16 @@ var MyForm = React.createClass({
 var MyAddButton = React.createClass({
 	render: function(){
 		return (
-			<button onClick={addForm} className="list-box__add">+</button>
+			<button onClick={addForm} className="list-box__add" id="list-box__add">+</button>
 		);
 	}
 });
 
 ReactDOM.render (
 	<div className="list-box">
-		<MyAddButton />
+		<div id="list-box__button">
+			<MyAddButton />
+		</div>		
 		<MyList />
 	</div>,
 	document.getElementById("root")
