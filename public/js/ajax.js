@@ -39,7 +39,9 @@ var MyNote = React.createClass({
 });
 var MyForm = React.createClass({	
 	send: function(){
-		list.setState({arr: list.state.arr.concat(this.refs.txt.value)});
+		$.post("/add", {note: this.refs.txt.value}, function(data){
+			list.setState({arr: data});
+		});
 		ReactDOM.unmountComponentAtNode(document.getElementById("add"));
 	},
 	render: function(){
