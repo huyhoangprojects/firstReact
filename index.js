@@ -28,3 +28,10 @@ app.post("/delete", parser, function(req, res){
 	arr.splice(id, 1);
 	res.send(arr);
 });
+
+app.post("/update", parser, function(req, res){
+	var id = req.body.idUpdate;
+	var content = req.body.detail;
+	arr[id] = content;
+	res.send(arr);
+});

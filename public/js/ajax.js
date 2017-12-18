@@ -31,17 +31,45 @@ var MyList = React.createClass({
 
 });
 var MyNote = React.createClass({
+	getInitialState() {
+		return {onUpdate: false};
+	},
 	delete: function(){
 		$.post("/delete", {idDelete: this.props.id} , function(data){
 			list.setState({arr: data});
 		});
 	},
+	update: function(){
+		this.setState({onUpdate: true});
+	},
+	cancel: function(){
+		this.setState({onUpdate: false});
+	},
+	save: function(){
+		var that = this;
+		$.post("/update", {idUpdate: this.props.id, detail: this.refs.txtUpdate.value} , function(data){
+			list.setState({arr: data});
+			that.setState({onUpdate: false});
+		});
+	},
 	render: function(){
-		return (
-			<div className="list-box__note">{this.props.children}
-				<button onClick={this.delete}>x</button>
-			</div>
-		);
+		if(this.state.onUpdate) {
+			return (
+				<div className="list-box__note">
+					<input defaultValue={this.props.children} ref="txtUpdate" />					
+					<button onClick={this.cancel}>x</button>	
+					<button onClick={this.save}>Save</button>				
+				</div>
+			);
+		} else {
+			return (
+				<div className="list-box__note">{this.props.children}
+					<button onClick={this.delete}>x</button>	
+					<button onClick={this.update}>Edit</button>				
+				</div>
+			);
+		}
+		
 	}
 });
 var MyForm = React.createClass({	
